@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000').connect()
+const socket = io().connect()
 
 const mensajear = document.querySelector('#chatear')
 
