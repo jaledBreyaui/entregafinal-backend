@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/styles/home/home.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/home/slider.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/home/products.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/signed/home.css">
+    <link rel="stylesheet" href="/public/styles/home/footer.css">
+    <link rel="stylesheet" href="/public/styles/chat/allChats.css">
+    <script src="socket.io/socket.io.js"></script>
+    <title>Chat</title>
+</head>
+
+<body>
+    <div class="nav ">
+        <div class="logo">
+            <h1>
+                <a href="/signed">Tienda Jaled (?</a>
+            </h1>
+        </div>
+        <div class="user">
+            <h2>
+                Bienvenido! <%- req.user[0].nombre%>
+            </h2>
+        </div>
+    </div>
+    <div class="">
+        <div class="bg-secondary opacity-75 text-light profileNav">
+            <p class="m-1"><a href="/profile" class="link-light">Mi perfil</a></p>
+            <p class="m-1"><a href="/cart" class="link-light">Carrito</a></p>
+            <p class="m-1"><a href="/history" class="link-light">Compras anteriores</a></p>
+            <p class="m-1"><a href="/logout" class="link-light">Cerrar sesión</a></p>
+        </div>
+    </div>
+    <div class="chatWrapper">
+        <div class="chat">
+            <ul class="listadoChat">
+
+            </ul>
+        </div>
+        <div class="postChat">
+            <form>
+                <input class="hidden" id="userEmail" value=<%- req.user[0].email %>>
+                <input name="message" id="mensaje" placeholder="Escribí un mensaje">
+                <button type="submit" class="boton" id="chatear">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+    <%- include("./footer.ejs") %>
+        <script src="/public/public/js/socket.js"></script>
+</body>
+
+</html>

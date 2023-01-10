@@ -1,0 +1,17 @@
+.mainHome {
+    height: 85vh;
+}
+
+.profileNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/styles/home/home.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/home/slider.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/home/products.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/signed/home.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/home/footer.css" type="text/css">
+    <script src="https://kit.fontawesome.com/d719a77ba7.js" crossorigin="anonymous"></script>
+    <title>Bienvenido</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<body>
+    <div class="nav ">
+        <div class="logo">
+            <h1>
+                <a href="/signed">Tienda Jaled (?</a>
+            </h1>
+        </div>
+        <div class="user">
+            <h2>
+                Bienvenido! <%- req.user[0].nombre%>
+            </h2>
+        </div>
+    </div>
+    <div class="">
+        <div class="bg-secondary opacity-75 text-light profileNav">
+            <p class="m-1"><a href="/profile" class="link-light">Mi perfil</a></p>
+            <p class="m-1"><a href="/cart" class="link-light">Carrito</a></p>
+            <p class="m-1"><a href="/history" class="link-light">Compras anteriores</a></p>
+            <p class="m-1"><a href="/logout" class="link-light">Cerrar sesión</a></p>
+        </div>
+    </div>
+    <div class="sliderWrapper">
+        <div class="slider">
+            <div class="slide">
+                <img src="../public/imgs/slider/cocina.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../public/imgs/slider/llibros.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../public/imgs/slider/telefonos.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../public/imgs/slider/ropa.jpg" alt="">
+            </div>
+
+            <button class="btn btnleft"> </button>
+            <button class="btn btnright"> </button>
+
+        </div>
+    </div>
+    <div id="productosEncabezado">
+        <p>Más Vendidos</p>
+    </div>
+    <div class="productos">
+        <% productos.map(data=> { %>
+            <a href="/productos/<%=data._id%>">
+
+                <div class="card">
+
+                    <img src="/public/imgs/productpics/<%=data.imagen %>">
+
+                    <div class="card-info">
+                        <p>
+                            <%=data.marca%>
+                        </p>
+
+                        <p>
+                            <%=data.nombre%>
+                        </p>
+                        <p>
+                            $<%=data.precio%>
+                        </p>
+
+                    </div>
+                    <form class="form-addToCart" action="/addcart" method="POST">
+                        <input value="<%=data._id%>" name="id">
+                        <button class="btn-addToCart" id="">
+                            Agregar 🛒
+                        </button>
+                    </form>
+
+                </div>
+            </a>
+            <%})%>
+                <button class="btn-prod-der"></button>
+                <button class="btn-prod-izq"></button>
+
+    </div>
+    <%- include("./footer.ejs") %>
+
+        <script src="../public/js/home.js">
+        </script>
+        <script src="../public/js/socket.js"></script>
+</body>
+
+</html>

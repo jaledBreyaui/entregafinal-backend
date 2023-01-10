@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0%;
+}
+
+body {
+    background-color: orange;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cargar {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    z-index: 10;
+    border-collapse: separate;
+    border-radius: 50%;
+}
+
+form {
+    text-align: center;
+    background-color: rgb(249, 228, 221);
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    min-width: 250px;
+    height: 100%;
+    margin: auto;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    padding: 20px;
+}
+
+form>input {
+    padding: 14px;
+    height: 20px;
+    min-width: 200px;
+    width: 65%;
+    border-radius: 5px;
+    font-size: clamp(25px, 50%, 35px);
+}
+
+#submitproduct {
+    height: 7%;
+    width: 30%;
+    min-width: 100px;
+    padding: 0px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}

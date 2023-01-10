@@ -1,0 +1,18 @@
+.user-info {
+    margin: auto;
+    width: 40%;
+    margin-top: 50px;
+    border: 2px solid orange;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    height: 300px;
+    aspect-ratio: 2/1;
+}
