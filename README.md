@@ -41,7 +41,7 @@ CARRITO
 Carrito del usuario
 /cart 
 
-Historial de comrpa
+Historial de compra
 /history
 
 ```
