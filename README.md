@@ -22,11 +22,9 @@
 PRODUCTOS
 
 Agregar productos a la base de datos
-
 /newproduct 
 
 Producto por su Id
-
 /products/:id
 
 ```
