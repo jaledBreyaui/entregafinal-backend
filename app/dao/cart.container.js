@@ -115,8 +115,8 @@ class CartContainer {
             console.log(total);
             const newOrder = await new Order({ user: usuario[0], productos, fecha, total })
             await newOrder.save()
-            // sendSms()
-            // newOrderMail(usuario[0], productos)
+            sendSms()
+            newOrderMail(usuario[0], productos)
             await this.deleteCart(userId)
             return newOrder
 
