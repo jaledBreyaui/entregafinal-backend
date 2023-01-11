@@ -8,27 +8,29 @@
 - Passport
 - Mongoose
 - Bcrypt
-- Websocket
+- Socket.io
 - Dotenv
-- Handlebars
+- Ejs
 - Nodemailer
+- Twilio
+- Multer
+
 
 ## <u> Routes </u>
 
 ```
-ADMIN
+Agregar productos a la base de datos
+/newproduct 
 
-username= emiliogril@gmail.com
-password= emilio
-
-/products/admin
+Muestra el producto por su Id
+/products/:id
 /order
 ```
 
 ```
 REGISTRO
 
-/register
+/signup
 ```
 
 ```
@@ -48,9 +50,9 @@ Por ejemplo:
 CHAT
 
 /chat
-/chat/:username
+/chat/:email
 
-EJ: /chat/:emiliogmail@gmail.com
+
 ```
 
 ```
