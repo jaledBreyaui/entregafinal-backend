@@ -19,31 +19,33 @@
 ## <u> Routes </u>
 
 ```
+PRODUCTOS
+
 Agregar productos a la base de datos
+
 /newproduct 
 
-Muestra el producto por su Id
+Producto por su Id
+
 /products/:id
-/order
+
 ```
 
 ```
-REGISTRO
+REGISTRO e INICIO DE SESIÓN
 
 /signup
 ```
 
 ```
-PRODUCTOS
+CARRITO
 
-/products
-/products/:id
-/products/category/:category
+Carrito del usuario
+/cart 
 
-Por ejemplo: 
-/products/category/Cerveza
-/products/category/Combo
-/products/category/Destinado
+Historial de comrpa
+/history
+
 ```
 
 ```
@@ -55,8 +57,3 @@ CHAT
 
 ```
 
-```
-CARRITO
-
-/cart
-```
