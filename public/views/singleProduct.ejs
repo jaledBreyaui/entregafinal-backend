@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/public/styles/home/home.css" type="text/css">
     <link rel="stylesheet" href="/public/styles/home/slider.css" type="text/css">
     <link rel="stylesheet" href="/public/styles/home/products.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles//product/singleproduct.css">
     <link rel="stylesheet" href="/public/styles/signed/home.css">
     <link rel="stylesheet" href="/public/styles/home/footer.css">
 
@@ -40,13 +41,28 @@
     </div>
     <div class="single-prod-wrapper">
         <% if(product) { %>
-            <div>
+            <div class="prod-img">
                 <img src="/public/imgs/productpics/<%-product.imagen%>">
+            </div>
+            <div class="prod-info">
+                <h2><%-product.nombre%></h2>
+                <h1>$ <%-product.precio%></h1>
+                <div class="product-btns">
+                    <button class="ahora">Comprar ahora</button>
+                    <form class="product-addToCart" action="/addcart" method="POST">
+                        <input value="<%=product._id%>" name="id" class="hidden">
+                        <button class="agregar" id="">
+                            Agregar al carrito
+                        </button>
+                    </form>
+                </div>
+
             </div>
             <% } else { %>
                 <h2>No hay productos con este Id</h2>
                 <%}%>
     </div>
+    <%- include("./footer.ejs")%>
 </body>
 
 </html>

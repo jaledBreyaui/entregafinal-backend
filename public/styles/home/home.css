@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+
+}
+
 .nav {
     background-color: orange;
     display: flex;

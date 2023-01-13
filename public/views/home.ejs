@@ -16,6 +16,7 @@
     <title>Home</title>
 </head>
 
+
 <body>
     <div class="nav ">
         <div class="logo">
@@ -56,31 +57,33 @@
     </div>
     <div class="productos">
         <% productos.map(data=> { %>
-            <div class="card">
+            <a href="/products/<%=data._id%>">
+                <div class="card">
 
-                <img src="/public/imgs/productpics/<%=data.imagen %>">
+                    <img src="/public/imgs/productpics/<%=data.imagen %>">
 
-                <div class="card-info">
-                    <p>
-                        <%=data.marca%>
-                    </p>
+                    <div class="card-info">
+                        <p>
+                            <%=data.marca%>
+                        </p>
 
-                    <p>
-                        <%=data.nombre%>
-                    </p>
-                    <p>
-                        $<%=data.precio%>
-                    </p>
+                        <p>
+                            <%=data.nombre%>
+                        </p>
+                        <p>
+                            $<%=data.precio%>
+                        </p>
+
+                    </div>
+                    <form class="form-addToCart" action="/addcart" method="POST">
+                        <input value="<%=data._id%>" name="id">
+                        <button class="btn-addToCart" id="">
+                            Agregar 🛒
+                        </button>
+                    </form>
 
                 </div>
-                <form class="form-addToCart" action="/addcart" method="POST">
-                    <input value="<%=data._id%>" name="id">
-                    <button class="btn-addToCart" id="">
-                        Agregar 🛒
-                    </button>
-                </form>
-
-            </div>
+            </a>
             <%})%>
                 <button class="btn-prod-der"></button>
                 <button class="btn-prod-izq"></button>

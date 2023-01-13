@@ -15,12 +15,6 @@
     <script src="https://kit.fontawesome.com/d719a77ba7.js" crossorigin="anonymous"></script>
     <title>Bienvenido</title>
 </head>
-<style>
-    a {
-        text-decoration: none;
-        color: black;
-    }
-</style>
 
 <body>
     <div class="nav ">
@@ -68,7 +62,7 @@
     </div>
     <div class="productos">
         <% productos.map(data=> { %>
-            <a href="/productos/<%=data._id%>">
+            <a href="/products/<%=data._id%>">
 
                 <div class="card">
 
@@ -78,14 +72,12 @@
                         <p>
                             <%=data.marca%>
                         </p>
-
                         <p>
                             <%=data.nombre%>
                         </p>
                         <p>
                             $<%=data.precio%>
                         </p>
-
                     </div>
                     <form class="form-addToCart" action="/addcart" method="POST">
                         <input value="<%=data._id%>" name="id">
@@ -93,7 +85,6 @@
                             Agregar 🛒
                         </button>
                     </form>
-
                 </div>
             </a>
             <%})%>

@@ -50,7 +50,6 @@ app.use(session({
 }))
 
 const passport = require('./app/middlewares/passport')
-const { dirname } = require('path')
 app.use(passport.session())
 app.use(passport.initialize())
 
@@ -76,8 +75,7 @@ io.on('connection', async socket => {
     })
 })
 
-
-///Server
+//Server
 
 serverHttp.listen(PORT, (err) => {
     if (err) console.log(err);

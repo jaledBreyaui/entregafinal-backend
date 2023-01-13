@@ -12,7 +12,6 @@ const deleteProduct = async (req, res) => {
     const prodId = req.body.id
     const userId = req.user[0].id
     await mongo.deleteProduct(userId, prodId)
-    console.log(prodId);
     res.redirect('/cart')
 }
 
@@ -20,7 +19,6 @@ const renderCart = async (req, res) => {
     const userId = req.user[0].id
     const cart = await mongo.getCart(userId)
     const total = await mongo.checkTotal(userId)
-    console.log(total);
     const productos = []
     if (cart.length) {
         const productos = cart[0].productos

@@ -28,8 +28,8 @@ class CartContainer {
         try {
             const cart = await Cart.find({ 'userId': userId })
             const productData = await prod.getProducts(prodId)
-            const { nombre, precio } = productData[0]
-            const product = { nombre, precio, prodId, cantidad: 1 }
+            const { nombre, precio, imagen } = productData[0]
+            const product = { nombre, precio, prodId, imagen, cantidad: 1 }
             //// Si ya existe
             if (cart.length) {
                 const allProdsInCart = cart[0].productos
@@ -103,7 +103,6 @@ class CartContainer {
                 total = total + productPrice
                 console.log(total);
             })
-            console.log(total);
             return total
         }
     }

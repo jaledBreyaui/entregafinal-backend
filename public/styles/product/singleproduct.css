@@ -1,0 +1,66 @@
+.single-prod-wrapper {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.prod-img,
+.prod-info {
+    height: 70%;
+    background-color: white;
+}
+
+.prod-img {
+    display: grid;
+    place-items: center;
+}
+
+.prod-img>img {
+    object-fit: contain;
+    vertical-align: top;
+    height: 90%;
+}
+
+.prod-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.product-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.ahora,
+.agregar {
+    padding: 20px;
+    border-radius: 08%;
+    border: none;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.ahora {
+    opacity: .9;
+    background-color: orange;
+}
+
+.ahora:hover {
+    opacity: 1;
+}
+
+body {
+    background-color: rgb(215, 214, 214);
+}
