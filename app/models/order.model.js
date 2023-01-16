@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
         type: Array
     },
     fecha: {
-        type: Date,
+        type: String,
         required: true
     },
     total: {

@@ -79,7 +79,6 @@ class CartContainer {
             }
         })
         await Cart.updateOne({ 'userId': userId }, { $set: { productos: products } })
-        console.log(products);
     }
 
     async deleteCart(userId) {
@@ -101,7 +100,6 @@ class CartContainer {
             products.map(prod => {
                 const productPrice = prod.precio * prod.cantidad
                 total = total + productPrice
-                console.log(total);
             })
             return total
         }
@@ -111,14 +109,12 @@ class CartContainer {
             const usuario = await users.getById(userId)
             const fecha = new Date().toLocaleDateString('en-GB')
             const total = await this.checkTotal(userId)
-            console.log(total);
             const newOrder = await new Order({ user: usuario[0], productos, fecha, total })
             await newOrder.save()
             sendSms()
             newOrderMail(usuario[0], productos)
             await this.deleteCart(userId)
             return newOrder
-
         } catch (error) {
             return error
         }
@@ -132,7 +128,6 @@ class CartContainer {
             return error
         }
     }
-
 }
 
 module.exports = { CartContainer }

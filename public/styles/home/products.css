@@ -1,6 +1,6 @@
 .productos {
     max-width: 100rem;
-    height: 60vh;
+    height: 40vh;
     margin: 80px auto;
     position: relative;
     padding: 10px;
@@ -11,13 +11,13 @@
 .card {
     position: absolute;
     top: 0;
-    width: 30%;
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 1s;
-    min-width: 430px;
+    min-width: 230px;
 }
 
 @media screen and (max-width:700px) {
@@ -40,13 +40,13 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    font-size: clamp(1.8rem, 2.5vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1rem);
     height: 40%;
 }
 
 .card>img {
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
     vertical-align: top;
     background-color: white;

@@ -43,24 +43,39 @@
         </div>
     </div>
     <div class="cart-wrapper">
-        <div class="cart">
+        <div class="cart-top">
             <% if(productos.length> 0){ %>
                 <% productos.forEach(prod=> { %>
                     <% if(prod.cantidad> 0) { %>
                         <div class="cart-prodinfo">
-                            <img src="/public/imgs/productpics/<%=prod.imagen %>" class="prod-img">
-                            <h3>
-                                <%= prod.nombre %>
-                            </h3>
-                            <form action="/deletefromcart" method="post">
-                                <input value="<%=prod.prodId%>" class="delete-input" name="id">
-                                <button class="delete-from-cart">🗑</button>
-                            </form>
-                            <h2>
-                                <%= prod.cantidad %>
-                            </h2>
-                            <h2> $<%= new Intl.NumberFormat('arg').format(prod.precio) %>
-                            </h2>
+                            <div class="cart-imgdiv">
+                                <img src="/public/imgs/productpics/<%=prod.imagen %>" class="prod-img">
+                            </div>
+                            <div class="cart-prodname">
+                                <h5>
+                                    <%= prod.nombre %>
+                                </h5>
+                            </div>
+
+                            <div class="cart-selecquant">
+                                <form class="cart-delete" action="/deletefromcart" method="post">
+                                    <input value="<%=prod.prodId%>" class="delete-input" name="id">
+                                    <button class="delete-from-cart">
+                                        <strong>-</strong>
+                                    </button>
+                                </form>
+                                <p>
+                                    <%= prod.cantidad %>
+                                </p>
+                                <form class="cart-addtocart" action="/addcart" method="POST">
+                                    <input value="<%=prod.prodId%>" name="id" class="hidden">
+                                    <button class="cart-addone" id="">
+                                        <strong>+</strong>
+                                    </button>
+                                </form>
+                            </div>
+                            <h4> $<%= new Intl.NumberFormat('arg').format(prod.precio) %>
+                            </h4>
                         </div>
                         <%}%>
                             <% }) %>
@@ -70,23 +85,25 @@
                                     </h2>
                                     <% } %>
         </div>
-        <div class="cart-total">
-            <h2>
-                <strong>Total:</strong> $<%-total ?new Intl.NumberFormat('arg').format(total) : 0 %>
-            </h2>
-        </div>
-        <% if(productos.length> 0){ %>
-            <div class=" cart-comprar">
-                <form action="/neworder" method="post">
-                    <button class="cart-comprar-btn">
-                        Comprar
-                    </button>
+        <div class="cart-btm">
 
-                </form>
-                <% } else { %>
-
-                    <% } %>
+            <div class="cart-total">
+                <h2>
+                    <strong>Total:</strong> $<%-total ?new Intl.NumberFormat('arg').format(total) : 0 %>
+                </h2>
             </div>
+            <% if(productos.length> 0){ %>
+                <div class=" cart-comprar">
+                    <form action="/neworder" method="POST">
+                        <button class="cart-comprar-btn">
+                            Comprar
+                        </button>
+                    </form>
+                    <% } else { %>
+
+                        <% } %>
+                </div>
+        </div>
     </div>
     <%- include("./footer.ejs")%>
 </body>

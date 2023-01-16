@@ -5,7 +5,13 @@ const addToCart = async (req, res) => {
     const prodId = req.body.id
     const userId = req.user[0].id
     await mongo.addToCart(userId, prodId)
-    res.redirect('/signed')
+    console.log(req.url);
+    if (req.url === "/addcart") {
+        res.redirect('/cart')
+    } else {
+
+        res.redirect('/signed')
+    }
 }
 
 const deleteProduct = async (req, res) => {

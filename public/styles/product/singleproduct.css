@@ -13,6 +13,7 @@
 .prod-info {
     height: 70%;
     background-color: white;
+    padding: 55px;
 }
 
 .prod-img {
@@ -24,7 +25,9 @@
     object-fit: contain;
     vertical-align: top;
     height: 90%;
+    width: 90%;
 }
+
 
 .prod-info {
     display: flex;

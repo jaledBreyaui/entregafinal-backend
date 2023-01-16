@@ -25,11 +25,21 @@
                 <a href="/signed">Tienda Jaled (?</a>
             </h1>
         </div>
-        <div class="user">
-            <h2>
-                Bienvenido! <%- req.user[0].nombre%>
-            </h2>
-        </div>
+        <% if (req.length> 0){ %>
+            <div class="user">
+                <h2>
+                    Bienvenido! <%- req.user[0].nombre%>
+                </h2>
+            </div>
+
+            <% } else { %>
+                <div class="register">
+                    <a href="/signup">
+                        <i class="fa-solid fa-user fa-lg opacity-75 mb-1"></i>
+                        <h4>Inicia sesión</h4>
+                    </a>
+                </div>
+                <% } %>
     </div>
     <div class="">
         <div class="bg-secondary opacity-75 text-light profileNav">
