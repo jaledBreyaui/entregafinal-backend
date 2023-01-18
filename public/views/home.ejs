@@ -71,16 +71,16 @@
                             <%=data.nombre%>
                         </p>
                         <p>
-                            $<%=data.precio%>
+                            $<%= new Intl.NumberFormat('arg').format(data.precio)%>
                         </p>
 
                     </div>
-                    <form class="form-addToCart" action="/addcart" method="POST">
+                    <!-- <form class="form-addToCart" action="/addcart" method="POST">
                         <input value="<%=data._id%>" name="id">
                         <button class="btn-addToCart" id="">
                             Agregar 🛒
                         </button>
-                    </form>
+                    </form> -->
 
                 </div>
             </a>

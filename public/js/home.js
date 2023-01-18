@@ -38,7 +38,7 @@ let maxCard = cards.length
 const goToCard = (card) => {
     cards.forEach((s, i) => {
         console.log(`${110 * (card)}`, "card");
-        s.style.transform = `translateX(${110 * (i - card * 1.9)}%)`
+        s.style.transform = `translateX(${110 * (i - card)}%)`
         if (window.innerWidth < 700) {
             s.style.transform = `translateX(${100 * (i - card)}%)`
         }

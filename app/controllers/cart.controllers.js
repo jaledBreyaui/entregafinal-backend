@@ -9,9 +9,15 @@ const addToCart = async (req, res) => {
     if (req.url === "/addcart") {
         res.redirect('/cart')
     } else {
-
         res.redirect('/signed')
     }
+}
+
+const addAndBuy = async (req, res) => {
+    const prodId = req.body.id
+    const userId = req.user[0].id
+    await mongo.addToCart(userId, prodId)
+    res.redirect('/cart')
 }
 
 const deleteProduct = async (req, res) => {
@@ -48,4 +54,4 @@ const showOrders = async (req, res) => {
     res.render('orders', { req, prevOrders })
 }
 
-module.exports = { addToCart, renderCart, newOrder, showOrders, deleteProduct }
+module.exports = { addToCart, addAndBuy, renderCart, newOrder, showOrders, deleteProduct }

@@ -76,7 +76,7 @@
                             <%=data.nombre%>
                         </p>
                         <p>
-                            $<%=data.precio%>
+                            $<%= new Intl.NumberFormat('arg').format(data.precio)%>
                         </p>
                     </div>
                     <!-- <form class="form-addToCart" action="/addcart" method="POST">

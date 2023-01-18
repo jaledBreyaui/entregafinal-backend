@@ -56,11 +56,14 @@
             </div>
             <div class="prod-info">
                 <h2><%-product.nombre%></h2>
-                <h1>$ <%-product.precio%></h1>
+                <h1>$<%= new Intl.NumberFormat('arg').format(product.precio)%>
+                </h1>
                 <div class="product-btns">
-                    <button class="ahora">Comprar ahora</button>
-                    <form class="product-addToCart" action="/addcart" method="POST">
+                    <form action="/buynow" method="POST">
                         <input value="<%=product._id%>" name="id" class="hidden">
+                        <button class="ahora">Comprar ahora</button>
+                    </form>
+                    <form class="product-addToCart" action="/addcart" method="POST">
                         <button class="agregar" id="">
                             Agregar al carrito
                         </button>

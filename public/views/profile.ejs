@@ -37,22 +37,38 @@
             <p class="m-1"><a href="/logout" class="link-light">Cerrar sesión</a></p>
         </div>
     </div>
-    <div class="user-info">
-        <ul>
-            <div class="profile-pic">
-                <img src="/public/imgs/profilepics/<%-req.user[0].foto%>">
-            </div>
-            <li><strong>Email</strong>
-                <%- req.user[0].email%>
-            </li>
-            <li><strong>Direccion</strong>
-                <%- req.user[0].direccion%>
-            </li>
-            <li><strong>Fecha de Nacimiento</strong>
-                <%- req.user[0].fechanacimiento%>
-            </li>
-        </ul>
+    <div class="profile-header">
+        <h2>
+            Mis datos
+        </h2>
+        <img src="/public/imgs/profilepics/<%-req.user[0].foto%>">
     </div>
+    <div class="profile-wrapper">
+        <div class="profile-userdata">
+            <div>
+                <p><strong>Nombre</strong></p>
+                <input value="<%- req.user[0].nombre %> <%- req.user[0].apellido%>" class="profile-input" disabled>
+            </div>
+            <div>
+                <p><strong>Email</strong></p>
+                <input value="<%- req.user[0].email%>" class="profile-input" disabled>
+            </div>
+            <div>
+                <p><strong>Direccion</strong></p>
+                <input value="<%- req.user[0].direccion%>" class="profile-input" disabled>
+            </div>
+            <div>
+                <p><strong>Teléfono</strong></p>
+                <input value="<%- req.user[0].telefono%>" class="profile-input" disabled>
+            </div>
+            <div>
+                <p><strong>Fecha de Nacimiento</strong></p>
+                <input value="<%- req.user[0].fechanacimiento %>" class="profile-input" disabled>
+            </div>
+
+        </div>
+    </div>
+    <%- include("./footer.ejs") %>
 </body>
 
 </html>
