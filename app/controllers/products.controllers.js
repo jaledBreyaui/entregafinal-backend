@@ -15,7 +15,7 @@ const postProduct = async (req, res) => {
             await mongo.postProducts(obj)
         }
     }
-    res.redirect('/nuevoproducto')
+    res.redirect('/newproduct')
 }
 
 const showProduct = async (req, res) => {
