@@ -14,7 +14,7 @@ body {
 
 .cargar {
     height: 70%;
-    width: 100%;
+    width: 50%;
     display: flex;
     margin: auto;
     z-index: 10;
@@ -29,7 +29,7 @@ form {
     justify-content: space-evenly;
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 55%;
     min-width: 250px;
     height: 100%;
     margin: auto;

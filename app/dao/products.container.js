@@ -29,6 +29,34 @@ class ProductsContainer {
             console.log(error);
         }
     }
+
+    async modifyProduct(obj) {
+        try {
+            await Prod.updateOne({ "_id": obj.id }, {
+                $set: {
+                    marca: obj.marca,
+                    nombre: obj.nombre,
+                    precio: obj.precio,
+                    tags: obj.tags,
+                    imagen: obj.imagen
+                }
+            })
+            return 'product updated'
+        } catch (error) {
+            return error
+        }
+    }
+
+    async deleteProduct(prodId) {
+        try {
+            console.log(prodId);
+            const prod = await Prod.findOneAndDelete({ "_id": prodId })
+            console.log(prod);
+            return 'Product deleted'
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = { ProductsContainer }

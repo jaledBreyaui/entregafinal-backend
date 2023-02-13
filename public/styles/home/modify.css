@@ -1,0 +1,22 @@
+.putproductform {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+
+.deleteproduct {
+    margin: 40px auto;
+    display: flex;
+    width: 50%;
+}
+
+#eliminar {
+    background-color: rgb(245, 52, 52);
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
