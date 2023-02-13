@@ -56,9 +56,17 @@
                                     <%= prod.nombre %>
                                 </h5>
                             </div>
+                            <div class="cart-trash">
+                                <form action="/deletefromcart" method="post">
+                                    <input value="<%=prod.prodId%>" name="id" class=" hidden">
+                                    <button class="trash-icon">
+                                        🗑
+                                    </button>
+                                </form>
+                            </div>
 
                             <div class="cart-selecquant">
-                                <form class="cart-delete" action="/deletefromcart" method="post">
+                                <form class="cart-delete" action="/minusone" method="post">
                                     <input value="<%=prod.prodId%>" class="delete-input" name="id">
                                     <button class="delete-from-cart">
                                         <strong>-</strong>
@@ -67,7 +75,7 @@
                                 <p>
                                     <%= prod.cantidad %>
                                 </p>
-                                <form class="cart-addtocart" action="/addcart" method="POST">
+                                <form class="cart-addtocart" action="/buynow" method="POST">
                                     <input value="<%=prod.prodId%>" name="id" class="hidden">
                                     <button class="cart-addone" id="">
                                         <strong>+</strong>
@@ -94,15 +102,20 @@
             </div>
             <% if(productos.length> 0){ %>
                 <div class=" cart-comprar">
+                    <form action="/emptycart" method="post" class="emptycart">
+                        <button class="emptycart-btn">
+                            Vaciar carrito
+                        </button>
+                    </form>
                     <form action="/neworder" method="POST">
                         <button class="cart-comprar-btn">
                             Comprar
                         </button>
                     </form>
-                    <% } else { %>
-
-                        <% } %>
                 </div>
+                <% } else { %>
+
+                    <% } %>
         </div>
     </div>
     <%- include("./footer.ejs")%>

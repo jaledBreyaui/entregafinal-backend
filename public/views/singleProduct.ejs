@@ -64,6 +64,7 @@
                         <button class="ahora">Comprar ahora</button>
                     </form>
                     <form class="product-addToCart" action="/addcart" method="POST">
+                        <input value="<%=product._id%>" name="id" class="hidden">
                         <button class="agregar" id="">
                             Agregar al carrito
                         </button>

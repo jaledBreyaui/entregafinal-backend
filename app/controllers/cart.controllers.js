@@ -5,12 +5,7 @@ const addToCart = async (req, res) => {
     const prodId = req.body.id
     const userId = req.user[0].id
     await mongo.addToCart(userId, prodId)
-    console.log(req.url);
-    if (req.url === "/addcart") {
-        res.redirect('/cart')
-    } else {
-        res.redirect('/signed')
-    }
+    res.redirect('/signed')
 }
 
 const addAndBuy = async (req, res) => {
@@ -23,7 +18,21 @@ const addAndBuy = async (req, res) => {
 const deleteProduct = async (req, res) => {
     const prodId = req.body.id
     const userId = req.user[0].id
-    await mongo.deleteProduct(userId, prodId)
+    await mongo.deleteFromCart(userId, prodId)
+    res.redirect('/cart')
+}
+
+
+const minusOne = async (req, res) => {
+    const prodId = req.body.id
+    const userId = req.user[0].id
+    await mongo.minusOneProduct(userId, prodId)
+    res.redirect('/cart')
+}
+
+const emptyCart = async (req, res) => {
+    const userId = req.user[0].id
+    await mongo.deleteCart(userId)
     res.redirect('/cart')
 }
 
@@ -54,4 +63,8 @@ const showOrders = async (req, res) => {
     res.render('orders', { req, prevOrders })
 }
 
-module.exports = { addToCart, addAndBuy, renderCart, newOrder, showOrders, deleteProduct }
+module.exports = {
+    addToCart, addAndBuy, renderCart,
+    newOrder, showOrders, minusOne,
+    deleteProduct, emptyCart
+}

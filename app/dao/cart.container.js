@@ -65,7 +65,18 @@ class CartContainer {
         }
     }
 
-    async deleteProduct(userId, prodId) {
+    async deleteFromCart(userId, prodId) {
+        const cart = await Cart.find({ 'userId': userId })
+        const products = cart[0].productos
+        products.map((prod, i) => {
+            if (prod.prodId === prodId) {
+                products.pop(i)
+            }
+        })
+        await Cart.updateOne({ 'userId': userId }, { $set: { productos: products } })
+    }
+
+    async minusOneProduct(userId, prodId) {
         const cart = await Cart.find({ 'userId': userId })
         const products = cart[0].productos
         products.map((prod, i) => {
